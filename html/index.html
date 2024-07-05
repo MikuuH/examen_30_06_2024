@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/main.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <div data-barba="wrapper">
+        <div data-barba="container" data-barba-namespace="home">
+            <div class="container">
+                <div class="block">
+                    <div class="header">
+                        <header></header>
+                        <div class="header-buttons">
+                            <a href="book.html" class="header-button">BOOK</a>
+                            <a href="visitors.html" class="header-button">VISITORS</a>
+                            <a href="cards.html" class="header-button">CARDS</a>
+                            <a href="stats.html" class="header-button">STATISTIK</a>
+                            <a href="about.html" class="button">Go to About</a>
+                        </div>
+                        <div class="dark-switch">
+                            <button class="header-button-dark-switch">DARK MODE</button>
+                        </div>
+                    </div>
+                    <div class="book">
+                        <div class="container-book" data-barba="container" data-barba-namespace="book">
+                            Привет, это - главная страница.
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <footer>Конец сайта</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- load barba (UMD version) -->
+    <script src="https://unpkg.com/@barba/core"></script>
+
+    <!-- load gsap animation library (minified version) -->
+    <script src="https://unpkg.com/gsap@latest/dist/gsap.min.js"></script>
+
+    <!-- init barba with a simple scale transition -->
+    <script type="text/javascript">
+    barba.init({
+        transitions: [{
+            name: 'scale-transition',
+            sync: true,
+            leave(data) {
+                // Animate only the content inside container-book
+                return gsap.to(data.current.container.querySelector('.container-book'), {
+                    opacity: 0,
+                    duration: 1 // продолжительность анимации 0.5 секунды
+                });
+            },
+            enter(data) {
+                // Animate only the content inside container-book
+                return gsap.from(data.next.container.querySelector('.container-book'), {
+                    opacity: 0,
+                    duration: 0.5 // продолжительность анимации 0.5 секунды
+                });
+            }
+        }]
+    });
+    </script>
+
 </body>
 </html>

@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@barba/core": "^2.10.0",
+    "gsap": "^3.12.5",
     "sqlite3": "^5.1.7"
   }
 }
