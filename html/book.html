@@ -4,56 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="src/css/book.css">
-
-    <title>Document</title>
+    <title>Book Page</title>
 </head>
 <body>
-    <div data-barba="wrapper">
-        <div data-barba="container" data-barba-namespace="home">
-            <div class="container">
-                <div class="block">
-                    <div class="header">
-                        <header></header>
-                        <div class="header-buttons">
-                            <a href="book.html" class="header-button">BOOK</a>
-                            <a href="visitors.html" class="header-button">VISITORS</a>
-                            <a href="cards.html" class="header-button">CARDS</a>
-                            <a href="stats.html" class="header-button">STATISTIK</a>
-                            <a href="about.html" class="button">Go to About</a>
-                        </div>
-                        <div class="dark-switch">
-                            <button class="header-button-dark-switch">DARK MODE</button>
-                        </div>
-                    </div>
-
-                    <div class="button-dialogs">
-                        <button class="add-new-book" type="button" onclick="document.getElementById('myDialog').showModal()">
-                            создать книгу
-                         </button>
-     
-                         <dialog id="myDialog">
-                             🖖 Живи долго и процветай!
-                             <button type="button" onclick="document.getElementById('myDialog').close()">Окей</button>
-                         </dialog>
-                    </div>
-
-
-
-
-
-                    <div class="book">
-                        <div class="container-book" data-barba="container" data-barba-namespace="book">
-                            Привет, это - страница для просмотра бука
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <footer>Конец сайта</footer>
-                    </div>
-                </div>
+    <div class="wrapper">
+        <!-- Шапка сайта -->
+        <header class="header">
+            <div class="header-buttons">
+                <a href="book.html" class="header-button">BOOK</a>
+                <a href="visitors.html" class="header-button">VISITORS</a>
+                <a href="cards.html" class="header-button">CARDS</a>
+                <a href="stats.html" class="header-button">STATISTIK</a>
+                <a href="about.html" class="button">Go to About</a>
             </div>
-        </div>
+            <div class="dark-switch">
+                <button class="header-button-dark-switch">DARK MODE</button>
+            </div>
+        </header>
+
+        <!-- Основной контент -->
+        <main class="container">
+            <section class="block">
+                <div class="button-dialogs">
+                    <div class="label-input">
+                        <label>Поиск: <input type="text"></label>
+                    </div>
+                    <button class="add-new-book" onclick="document.getElementById('myDialog').showModal()">
+                        Создать книгу
+                    </button>
+                    <dialog id="myDialog">
+                        <form action="" class="railway">
+                            <label for="bookName">Имя книги: </label>
+                            <input type="text" id="bookName" name="bookName"><br>
+                            <label for="authorName">Имя автора: </label>
+                            <input type="text" id="authorName" name="authorName"><br>
+                            <label for="publisher">Название издательства: </label>
+                            <input type="text" id="publisher" name="publisher"><br>
+                            <label for="pages">Кол-во страниц: </label>
+                            <input type="text" id="pages" name="pages"><br>
+                            <label for="copies">Экземпляров: </label>
+                            <input type="text" id="copies" name="copies"><br>
+                            <button type="button" onclick="addBook()">Добавить книгу</button>
+                            <button type="button" onclick="document.getElementById('myDialog').close()">Отмена</button>
+                        </form>
+                    </dialog>
+                </div>
+
+                <section class="book">
+                    <div class="container-book" data-barba="container" data-barba-namespace="book">
+                        <table class="book-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Имя книги</th>
+                                    <th>Имя автора</th>
+                                    <th>Издательство</th>
+                                    <th>Кол-во страниц</th>
+                                    <th>Экземпляров</th>
+                                </tr>
+                            </thead>
+                            <tbody class="book-table-body">
+                                <!-- Данные будут добавляться здесь с помощью JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <!-- Футер -->
+        <footer class="footer">
+            Конец сайта
+        </footer>
     </div>
 
+    <!-- Скрипты -->
+    <script src="src/JavaScript/app.js"></script>
 </body>
 </html>
